@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bojonegoro Youth Fest | Fun Run & Music Stage</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config for Neon Theme -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0B12',
+                            card: '#161622',
+                            neonPink: '#FF007F',
+                            neonCyan: '#00F0FF',
+                            neonPurple: '#8A2BE2'
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0B12;
+            color: #ffffff;
+        }
+        /* Neon Glow Effects */
+        .glow-pink { text-shadow: 0 0 10px #FF007F, 0 0 20px #FF007F; }
+        .glow-cyan { text-shadow: 0 0 10px #00F0FF, 0 0 20px #00F0FF; }
+        .border-neon-pink { box-shadow: 0 0 10px rgba(255, 0, 127, 0.5); border: 1px solid #FF007F; }
+        .border-neon-cyan { box-shadow: 0 0 10px rgba(0, 240, 255, 0.5); border: 1px solid #00F0FF; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B12; }
+        ::-webkit-scrollbar-thumb { background: #8A2BE2; border-radius: 4px; }
+        
+        /* Chatbot Animations */
+        .chat-slide-up { animation: slideUp 0.3s ease-out forwards; }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Loading Dots */
+        .typing-indicator span {
+            animation: blink 1.4s infinite both;
+            height: 6px; width: 6px; background: #00F0FF; border-radius: 50%; display: inline-block; margin: 0 2px;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            20% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.2; transform: scale(0.8); }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-brand-neonPink selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-dark/80 border-b border-white/10" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-2xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-brand-neonCyan to-brand-neonPink">
+                        BYF.2026
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-brand-neonCyan transition">Beranda</a>
+                    <a href="#lineup" class="text-gray-300 hover:text-brand-neonCyan transition">Line Up</a>
+                    <a href="#tickets" class="text-gray-300 hover:text-brand-neonCyan transition">Tiket</a>
+                </div>
+                <a href="#tickets" class="bg-brand-neonPink hover:bg-pink-600 text-white px-5 py-2 rounded-full font-semibold transition border-neon-pink text-sm">
+                    Beli Tiket
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <!-- Abstract Background Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-neonPink/20 rounded-full blur-[120px] -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-neonCyan/20 rounded-full blur-[120px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-brand-neonCyan/50 bg-brand-neonCyan/10 text-brand-neonCyan font-semibold text-sm mb-6 uppercase tracking-widest backdrop-blur-sm">
+                15 - 16 November 2026 • Alun-Alun Bojonegoro
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                BOJONEGORO <br />
+                <span class="glow-pink text-brand-neonPink">YOUTH FEST</span>
+            </h1>
+            <p class="mt-4 text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                Festival anak muda terbesar di Jawa Timur! Gabungan semangat Fun Run pagi hari dan euforia panggung musik di malam hari.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#tickets" class="bg-gradient-to-r from-brand-neonPurple to-brand-neonPink text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform border border-white/20 shadow-[0_0_20px_rgba(255,0,127,0.4)]">
+                    Amankan Tiketmu
+                </a>
+                <a href="#lineup" class="bg-white/5 border border-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors">
+                    Lihat Line Up
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lineup Section -->
+    <section id="lineup" class="py-20 bg-brand-card/50 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Special Performances</h2>
+                <div class="w-20 h-1 bg-brand-neonCyan mx-auto rounded-full glow-cyan"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Artist 1 -->
+                <div class="group relative overflow-hidden rounded-2xl bg-brand-dark border border-white/10 hover:border-brand-neonCyan transition duration-300">
+                    <div class="h-64 bg-zinc-800 relative">
+                        <!-- Placeholder using UI Avatars/Gradients for aesthetic -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-900 to-indigo-900 opacity-80 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🎸</div>
+                    </div>
+                    <div class="p-6 relative z-10 -mt-12 bg-gradient-to-t from-brand-dark via-brand-dark to-transparent">
+                        <h3 class="text-2xl font-bold mb-1">Hindia</h3>
+                        <p class="text-brand-neonCyan text-sm font-semibold">Day 2 • Headline</p>
+                    </div>
+                </div>
+                <!-- Artist 2 -->
+                <div class="group relative overflow-hidden rounded-2xl bg-brand-dark border border-white/10 hover:border-brand-neonPink transition duration-300">
+                    <div class="h-64 bg-zinc-800 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-900 to-rose-900 opacity-80 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🎤</div>
+                    </div>
+                    <div class="p-6 relative z-10 -mt-12 bg-gradient-to-t from-brand-dark via-brand-dark to-transparent">
+                        <h3 class="text-2xl font-bold mb-1">LAVORA</h3>
+                        <p class="text-brand-neonPink text-sm font-semibold">Day 1 • Ambyar Night</p>
+                    </div>
+                </div>
+                <!-- Artist 3 -->
+                <div class="group relative overflow-hidden rounded-2xl bg-brand-dark border border-white/10 hover:border-brand-neonCyan transition duration-300">
+                    <div class="h-64 bg-zinc-800 relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-cyan-900 opacity-80 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🎭</div>
+                    </div>
+                    <div class="p-6 relative z-10 -mt-12 bg-gradient-to-t from-brand-dark via-brand-dark to-transparent">
+                        <h3 class="text-2xl font-bold mb-1">Cak Percil</h3>
+                        <p class="text-brand-neonCyan text-sm font-semibold">Day 2 • Culture Comedy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ticketing & Cart Section -->
+    <section id="tickets" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Beli Tiket</h2>
+                <p class="text-gray-400">Pilih kategori tiketmu sebelum kehabisan!</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Ticket Options -->
+                <div class="w-full lg:w-2/3 space-y-6" id="ticket-list">
+                    <!-- Injected via JS -->
+                </div>
+
+                <!-- Shopping Cart / Checkout Panel -->
+                <div class="w-full lg:w-1/3">
+                    <div class="bg-brand-card rounded-2xl border border-white/10 p-6 sticky top-28">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand-neonCyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            Pesanan Tiket
+                        </h3>
+                        
+                        <div id="cart-items" class="space-y-4 mb-6 min-h-[100px]">
+                            <!-- Empty Cart -->
+                            <div id="empty-cart" class="text-center text-gray-500 py-6 text-sm">
+                                Belum ada tiket yang dipilih.
+                            </div>
+                        </div>
+
+                        <div class="border-t border-white/10 pt-4 mb-6">
+                            <div class="flex justify-between text-gray-400 mb-2">
+                                <span>Subtotal</span>
+                                <span id="cart-subtotal">Rp 0</span>
+                            </div>
+                            <div class="flex justify-between text-gray-400 mb-2">
+                                <span>Biaya Admin (5%)</span>
+                                <span id="cart-tax">Rp 0</span>
+                            </div>
+                            <div class="flex justify-between text-xl font-bold text-white mt-4">
+                                <span>Total</span>
+                                <span id="cart-total" class="text-brand-neonCyan">Rp 0</span>
+                            </div>
+                        </div>
+
+                        <button id="btn-checkout" onclick="processCheckout()" disabled class="w-full bg-brand-neonPink hover:bg-pink-600 disabled:bg-gray-700 disabled:text-gray-500 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-colors border-neon-pink">
+                            Checkout Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-brand-dark py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Bojonegoro Youth Fest. All rights reserved.</p>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-neonCyan rounded-2xl p-8 max-w-sm w-full text-center relative shadow-[0_0_30px_rgba(0,240,255,0.2)] chat-slide-up">
+            <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500">
+                <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Checkout Berhasil!</h2>
+            <p class="text-gray-400 text-sm mb-6">Instruksi pembayaran telah dikirim ke email Anda. Sampai jumpa di Bojonegoro Youth Fest!</p>
+            <button onclick="closeModal()" class="w-full bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-xl transition">Tutup</button>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Widget -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-[60] flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[80vh] bg-brand-card border border-brand-neonPink rounded-2xl shadow-[0_0_30px_rgba(255,0,127,0.2)] mb-4 flex-col overflow-hidden chat-slide-up">
+            <!-- Chat Header -->
+            <div class="bg-gradient-to-r from-brand-neonPurple to-brand-neonPink p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">🤖</div>
+                    <div>
+                        <h3 class="font-bold text-white text-sm">FestBot AI</h3>
+                        <p class="text-white/70 text-[10px]">Tanya seputar acara</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white/80 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-brand-dark/50">
+                <!-- Initial Message -->
+                <div class="flex gap-2">
+                    <div class="w-6 h-6 rounded-full bg-brand-neonPink/20 flex items-center justify-center flex-shrink-0 text-xs border border-brand-neonPink/50">🤖</div>
+                    <div class="bg-brand-card border border-white/10 p-3 rounded-2xl rounded-tl-none text-sm text-gray-200">
+                        Halo rek! 👋 Aku FestBot, asisten AI Bojonegoro Youth Fest. Ada yang bisa aku bantu? Tanya soal rundown, tiket, atau lokasi ya!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="p-3 border-t border-white/10 bg-brand-card">
+                <form id="chat-form" class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Tanya sesuatu..." class="flex-1 bg-brand-dark border border-white/20 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-brand-neonPink text-white" autocomplete="off" required>
+                    <button type="submit" class="bg-brand-neonPink text-white p-2 rounded-xl hover:bg-pink-600 transition flex-shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Toggle Button -->
+        <button onclick="toggleChat()" class="w-14 h-14 bg-gradient-to-r from-brand-neonPink to-brand-neonPurple rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,0,127,0.4)] hover:scale-110 transition-transform relative border border-white/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            <span class="absolute -top-1 -right-1 flex h-4 w-4">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neonCyan opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-neonCyan border-2 border-brand-dark"></span>
+            </span>
+        </button>
+    </div>
+
+    <!-- Javascript Logic -->
+    <script>
+        // --- 1. Ticketing Data & Logic ---
+        const tickets = [
+            { id: 't1', name: 'Fun Run Only', desc: 'Medali, Jersey, Nomor Dada, Water Station', price: 75000, type: 'cyan', qty: 0 },
+            { id: 't2', name: 'Festival Pass', desc: 'Akses panggung musik Day 1 & Day 2 (Reguler)', price: 150000, type: 'pink', qty: 0 },
+            { id: 't3', name: 'VIP Bundle', desc: 'Fun Run + VIP Music Access + Exclusive Merch', price: 300000, type: 'purple', qty: 0 }
+        ];
+
+        const formatRupiah = (num) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num);
+
+        function renderTickets() {
+            const container = document.getElementById('ticket-list');
+            container.innerHTML = '';
+
+            tickets.forEach(ticket => {
+                let borderClass = ticket.type === 'cyan' ? 'hover:border-brand-neonCyan' : ticket.type === 'pink' ? 'hover:border-brand-neonPink' : 'hover:border-brand-neonPurple';
+                let textClass = ticket.type === 'cyan' ? 'text-brand-neonCyan' : ticket.type === 'pink' ? 'text-brand-neonPink' : 'text-brand-neonPurple';
+
+                const html = `
+                    <div class="bg-brand-card/80 border border-white/10 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300 ${borderClass}">
+                        <div>
+                            <div class="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold mb-2 ${textClass}">
+                                Kategori
+                            </div>
+                            <h3 class="text-2xl font-bold mb-1">${ticket.name}</h3>
+                            <p class="text-gray-400 text-sm">${ticket.desc}</p>
+                        </div>
+                        <div class="flex flex-col items-end w-full md:w-auto mt-4 md:mt-0">
+                            <div class="text-2xl font-bold mb-3 ${textClass}">${formatRupiah(ticket.price)}</div>
+                            <div class="flex items-center gap-3 bg-brand-dark rounded-full p-1 border border-white/10 w-full md:w-auto justify-between">
+                                <button onclick="updateQty('${ticket.id}', -1)" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center transition text-xl leading-none pb-1">-</button>
+                                <span class="font-bold w-6 text-center text-sm">${ticket.qty}</span>
+                                <button onclick="updateQty('${ticket.id}', 1)" class="w-8 h-8 rounded-full bg-brand-neonPink hover:bg-pink-500 flex items-center justify-center transition text-xl leading-none pb-1 border-neon-pink">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        function updateQty(id, change) {
+            const ticket = tickets.find(t => t.id === id);
+            if (ticket) {
+                ticket.qty += change;
+                if (ticket.qty < 0) ticket.qty = 0;
+                if (ticket.qty > 10) ticket.qty = 10; // Max limit
+                renderTickets();
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            const cartContainer = document.getElementById('cart-items');
+            const emptyCart = document.getElementById('empty-cart');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const taxEl = document.getElementById('cart-tax');
+            const totalEl = document.getElementById('cart-total');
+            const btnCheckout = document.getElementById('btn-checkout');
+
+            let subtotal = 0;
+            let activeItems = tickets.filter(t => t.qty > 0);
+
+            if (activeItems.length === 0) {
+                cartContainer.innerHTML = '';
+                cartContainer.appendChild(emptyCart);
+                emptyCart.classList.remove('hidden');
+                subtotalEl.textContent = 'Rp 0';
+                taxEl.textContent = 'Rp 0';
+                totalEl.textContent = 'Rp 0';
+                btnCheckout.disabled = true;
+                btnCheckout.classList.remove('border-neon-pink');
+                return;
+            }
+
+            emptyCart.classList.add('hidden');
+            btnCheckout.disabled = false;
+            btnCheckout.classList.add('border-neon-pink');
+            cartContainer.innerHTML = '';
+
+            activeItems.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+
+                cartContainer.innerHTML += `
+                    <div class="flex justify-between items-start text-sm">
+                        <div>
+                            <div class="font-semibold text-white">${item.name}</div>
+                            <div class="text-gray-400">${item.qty}x @ ${formatRupiah(item.price)}</div>
+                        </div>
+                        <div class="font-bold text-gray-200">${formatRupiah(itemTotal)}</div>
+                    </div>
+                `;
+            });
+
+            const tax = subtotal * 0.05; // 5% tax/admin fee
+            const total = subtotal + tax;
+
+            subtotalEl.textContent = formatRupiah(subtotal);
+            taxEl.textContent = formatRupiah(tax);
+            totalEl.textContent = formatRupiah(total);
+        }
+
+        function processCheckout() {
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+            // Reset state
+            tickets.forEach(t => t.qty = 0);
+            renderTickets();
+            updateCart();
+        }
+
+        // --- 2. AI Chatbot Logic (Gemini API Integration) ---
+        let chatOpen = false;
+        let chatHistory = [];
+
+        // System Context for the AI to know about the event
+        const systemPrompt = `Kamu adalah FestBot, asisten virtual resmi untuk acara "Bojonegoro Youth Fest 2026". 
+        Informasi Acara:
+        - Tanggal: 15 dan 16 November 2026
+        - Lokasi: Alun-Alun Bojonegoro, Jawa Timur
+        - Acara: Pagi ada Fun Run, sore hingga malam ada Panggung Musik (Music Stage).
+        - Lineup Artis: Hari 1 (LAVORA - Ambyar Night), Hari 2 (Cak Percil sore hari, Hindia malam hari sebagai headline).
+        - Harga Tiket: Fun Run Only (Rp 75.000), Festival Pass (Rp 150.000), VIP Bundle (Rp 300.000).
+        - Pembelian tiket hanya melalui website resmi ini.
+        Gaya bahasa: Asik, gaul khas anak muda Jawa Timur (boleh pakai kata 'rek', 'sam', tapi tetap sopan), ringkas, dan sangat membantu.
+        Format respons: Gunakan teks biasa atau poin-poin sederhana. Jangan gunakan markdown yang rumit.`;
+
+        function toggleChat() {
+            const windowEl = document.getElementById('chat-window');
+            chatOpen = !chatOpen;
+            if (chatOpen) {
+                windowEl.classList.remove('hidden');
+            } else {
+                windowEl.classList.add('hidden');
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const msgContainer = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            
+            if (sender === 'user') {
+                div.className = 'flex justify-end';
+                div.innerHTML = `
+                    <div class="bg-brand-neonCyan/20 border border-brand-neonCyan/50 p-3 rounded-2xl rounded-tr-none text-sm text-white max-w-[85%]">
+                        ${text}
+                    </div>
+                `;
+            } else if (sender === 'ai') {
+                div.className = 'flex gap-2';
+                div.innerHTML = `
+                    <div class="w-6 h-6 rounded-full bg-brand-neonPink/20 flex items-center justify-center flex-shrink-0 text-xs border border-brand-neonPink/50">🤖</div>
+                    <div class="bg-brand-card border border-white/10 p-3 rounded-2xl rounded-tl-none text-sm text-gray-200 max-w-[85%]">
+                        ${text}
+                    </div>
+                `;
+            } else if (sender === 'loading') {
+                div.id = 'typing-indicator';
+                div.className = 'flex gap-2';
+                div.innerHTML = `
+                    <div class="w-6 h-6 rounded-full bg-brand-neonPink/20 flex items-center justify-center flex-shrink-0 text-xs border border-brand-neonPink/50">🤖</div>
+                    <div class="bg-brand-card border border-white/10 p-3 rounded-2xl rounded-tl-none text-sm text-gray-200 flex items-center typing-indicator">
+                        <span></span><span></span><span></span>
+                    </div>
+                `;
+            }
+
+            msgContainer.appendChild(div);
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+        }
+
+        function removeLoading() {
+            const loading = document.getElementById('typing-indicator');
+            if (loading) loading.remove();
+        }
+
+        document.getElementById('chat-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const inputEl = document.getElementById('chat-input');
+            const message = inputEl.value.trim();
+            if (!message) return;
+
+            // Display User Message
+            appendMessage('user', message);
+            inputEl.value = '';
+            
+            // Display Loading
+            appendMessage('loading');
+
+            // Setup history for context mapping (basic implementation)
+            chatHistory.push({ role: "user", parts: [{ text: message }] });
+
+            // Prepare Gemini API Payload
+            const payload = {
+                contents: chatHistory,
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            // CRITICAL: apiKey must be left empty string for the platform to inject
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                removeLoading();
+
+                if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts[0].text) {
+                    const aiReply = result.candidates[0].content.parts[0].text;
+                    // Format bold texts simply for HTML display if needed, but keeping it raw text is safer
+                    const formattedReply = aiReply.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    appendMessage('ai', formattedReply);
+                    
+                    // Save model response to history for multi-turn capability
+                    chatHistory.push({ role: "model", parts: [{ text: aiReply }] });
+                } else {
+                    appendMessage('ai', 'Maaf rek, sistemku lagi ada gangguan dikit. Coba tanya lagi ya!');
+                }
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                removeLoading();
+                appendMessage('ai', 'Waduh, koneksi error nih rek. Pastikan internetmu lancar ya!');
+            }
+        });
+
+        // Initialize
+        window.onload = () => {
+            renderTickets();
+            updateCart();
+        };
+    </script>
+</body>
+</html>
